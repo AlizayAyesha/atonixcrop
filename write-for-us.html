@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Write for Us</title>
+    <style>
+        body {
+            padding-top: 20px; /* Adjust if needed to align with navbar */
+        }
+        .quill-container {
+            height: 50vh; /* Half of the viewport height */
+            border: 1px solid #ccc; /* Border color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for better visibility */
+            margin-bottom: 20px; /* Space below the content box */
+            background-color: #f9f9f9; /* Background color */
+        }
+        .form-group {
+            margin-bottom: 20px; /* Space below form groups */
+        }
+        /* Ensure the Quill editor container has proper visibility */
+.ql-container {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9; /* Editor background color */
+    height: 50vh; /* Height of the editor */
+}
+
+.ql-editor {
+    color: #000; /* Text color */
+    background-color: #fff; /* Background color of the text area */
+    min-height: 300px; /* Ensure editor has enough height */
+}
+
+/* Optional: Ensure placeholder text is visible */
+.ql-editor::before {
+    color: #aaa;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: #fff;
+}
+.ql-snow * {
+    box-sizing: border-box;
+    color: #000;
+}
+
+    </style>
+</head>
+<body>
+  <!--Nav bar-->
+
+  <div class="container-fluid">
+    <div class="navbar navbar-expand-lg bg-body-tertiary">
+        <a href="#" class="navbar-brand">
+            <img src="img/logo.jpg" alt="logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="index.html#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></li>
+                <li><a href="description.html">Services</a></li>            
+                <li class="nav-item"><a href="index.html#portfolio" class="nav-link">Projects/Portfolio</a></li>
+                <li class="nav-item"><a href="index.html#blog" class="nav-link">Blog</a></li>
+                <li><a href="prometheusapm.html">PrometheusAPM</a></li>            
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Write for Us</h2>
+        <form action="submit-post.php" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <div id="editor-container" class="quill-container"></div>
+            </div>
+            <input type="hidden" name="content" id="hidden-content">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Include Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        // Initialize Quill editor
+        var quill = new Quill('#editor-container', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': '1' },],
+                    ['bold', 'italic', 'underline'],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    [{ 'align': [] }],
+                    ['link', 'image'],
+                ]
+            }
+        });
+
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            // Get the HTML content of the editor
+            var content = quill.root.innerHTML;
+            // Set it as the value of the hidden input
+            document.getElementById('hidden-content').value = content;
+        });
+    </script>
+    
+<!--footer-->
+
+
+<div class="footer">
+    <div class="footer-content container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate deserunt quas eaque soluta neque non mollitia repudiandae temporibus! Nam ea in quod magnam officiis, odio natus commodi accusantium illum tempora.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: contact@example.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                
+                <a href="https://www.linkedin.com/company/ofido-hub/posts/?feedView=all" aria-label="LinkedIn"><img src="animation/icons8-linkedin-circled.gif" alt="linkedin" class="gif-icon"></a>
+                <a href="https://twitter.com/ofidohub" aria-label="Twitter"><img src="animation/icons8-twitter.gif" alt="twitter" class="gif-icon">
+                </a>
+                <a href="https://www.instagram.com/ofidohub/" aria-label="Instagram"><img src="animation/icons8-instagram.gif" alt="instagram" class="gif-icon">
+                </a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="description.html">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <p>&copy; 2024 AtonixCorp</p>
+</div>
+</body>
+</html>
+<style>
+    
+/* Footer container */
+.footer {
+    background-image: url(img/footer.png); /* Dark background color */
+    color: #1b1919; /* black text color */
+    padding: 40px 0; /* Top and bottom padding */
+    text-align: center; /* Center text */
+}
+
+/* Footer container */
+.footer {
+    background-image: url(img/footer.jpg); /* Dark background color */
+    color: #ffffff; /* black text color */
+    padding: 40px 0; /* Top and bottom padding */
+    text-align: center; /* Center text */
+}
+
+/* Footer content container */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap to the next line if needed */
+    justify-content: center; /* Center the footer sections horizontally */
+    gap: 20px; /* Space between sections */
+}
+
+/* Individual footer sections */
+.footer-section {
+    flex: 1 1 200px; /* Grow and shrink with a base width of 200px */
+    padding: 0 15px; /* Horizontal padding for sections */
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 15px; /* Space below the heading */
+    font-size: 30px; /* Font size for headings */
+}
+
+.footer-section p, .footer-section ul {
+    margin: 0; /* Remove default margin */
+    font-weight: 100;
+    color: #f6f4f4;
+    font-size: 20px; /* Font size for paragraphs and list items */
+}
+
+.footer-section ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.footer-section ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.footer-section ul li a {
+    color: #ffffff; /* White text color for links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.social-icons a {
+    
+    margin: 0 10px; /* Space between social icons */
+    display: inline-block; /* Align icons horizontally */
+}
+
+.social-icons img {
+    width: 30px; /* Size of social icons */
+    height: 30px; /* Size of social icons */
+}
+
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer-section {
+        flex: 1 1 100%; /* Full width on smaller screens */
+        padding: 10px 0; /* Vertical padding for sections */
+    }}
+
+    /* Base styles for the hamburger menu icon */
+.navbar-toggler {
+    border: none; /* Remove default border */
+    background: transparent; /* Transparent background */
+    padding: 0; /* Remove default padding */
+    width: 40px; /* Width of the hamburger button */
+    height: 40px; /* Height of the hamburger button */
+    position: relative; /* Position relative for the child elements */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.navbar-toggler-icon {
+    display: block;
+    position: relative;
+    width: 30px; /* Width of the lines */
+    height: 20px; /* Height of the lines container */
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon span {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px; /* Height of each line */
+    background-color: #007BFF; /* Color of the lines */
+    margin: 6px auto; /* Spacing between lines */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Optional: Hover effect to slightly scale the lines */
+.navbar-toggler:hover .navbar-toggler-icon span {
+    transform: scale(1.1); /* Slightly scale up on hover */
+}
+
+/* When the menu is open (transforms to X) */
+.navbar-toggler.collapsed .navbar-toggler-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* Adjusted for balance */
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px); /* Adjusted for balance */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 670px) {
+    .navbar-nav {
+        display: none; /* Hide the menu by default on mobile */
+        flex-direction: column;
+        width: 100%; /* Adjust width as needed */
+        background-color: #020825;
+        position: absolute;
+        top: 60px; /* Adjust this based on the height of your navbar */
+        left: 0;
+        padding: 10px 0;
+        z-index: 9999; /* Ensure the menu is above other content */
+    }
+
+    .navbar-collapse.show .navbar-nav {
+        display: flex; /* Show menu when navbar is expanded */
+    }
+
+    .navbar-nav li {
+        margin: 10px 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar-toggler {
+        width: 30px; /* Smaller width for the button */
+        height: 30px; /* Smaller height for the button */
+    }
+    
+    .navbar-toggler-icon {
+        width: 30px; /* Smaller width for the lines container */
+        height: 20px; /* Smaller height for the lines container */
+    }
+    
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon span {
+        height: 2px; /* Thinner lines */
+        margin: 4px 0; /* Less space between lines */
+    }
+
+    .navbar-toggler.collapsed .navbar-toggler-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(3px, 3px); /* Adjusted for smaller button */
+    }
+
+    .navbar-toggler.collapsed .navbar-toggler-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(3px, -3px); /* Adjusted for smaller button */
+    }
+}
+
+/* Media query for larger screens (fixing visibility issue) */
+@media (min-width: 670px) {
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon span {
+        background-color: #007BFF; /* Ensure lines are visible with the specified color */
+    }
+}
+
+</style>
